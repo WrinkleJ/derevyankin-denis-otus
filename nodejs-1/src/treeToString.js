@@ -23,12 +23,13 @@ function dive(name, _items, depth = 0, isLastBranch = false) {
     const isLastChild = i === items.length - 1;
     const isLeaf = childItems.length === 0;
     const jointer = isLastChild || isLeaf ? `└──` : `├──`;
-    return `${treeStr}${space}${jointer} ${dive(
+    const subTree = dive(
       child.name,
       childItems,
       depth + 1,
       isLastBranch || isLastChild
-    )}`;
+    );
+    return `${treeStr}${space}${jointer} ${subTree}`;
   }, root);
 }
 
