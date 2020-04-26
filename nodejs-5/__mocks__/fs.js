@@ -1,17 +1,6 @@
 const fs = jest.genMockFromModule("fs");
 const path = require("path");
 
-// const tree = {
-//   "sample-file.txt": "This is file content",
-//   "path": {
-//     "to": {
-//       "sub-dir": {
-//         "another-file.md": "Markdown content",
-//       },
-//     },
-//   },
-// };
-
 let tree = {};
 
 function __mockFsTree(directoryTree) {
