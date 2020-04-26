@@ -13,6 +13,7 @@ test("work with empty directory", async () => {
 });
 
 test("work with simple tree directory", async () => {
+  expect.assertions(1);
   const successResult = {
     name: "A",
     items: [
