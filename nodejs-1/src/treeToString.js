@@ -14,21 +14,19 @@ function treeToString(tree) {
   return dive(tree.name, tree.items);
 }
 
-function dive(name, _items, depth = 0, isLastBranch = false) {
+function dive(name, _items, lastChildMarks = []) {
   const root = `${name}\n`;
-  const space = new Array(depth).fill(isLastBranch ? `    ` : `│   `).join(``);
+  const space = lastChildMarks
+    .map((isLastBranch) => (isLastBranch ? `    ` : `│   `))
+    .join(``);
   const items = _items || [];
   return items.reduce((treeStr, child, i) => {
     const childItems = child.items || [];
     const isLastChild = i === items.length - 1;
     const isLeaf = childItems.length === 0;
     const jointer = isLastChild || isLeaf ? `└──` : `├──`;
-    const subTree = dive(
-      child.name,
-      childItems,
-      depth + 1,
-      isLastBranch || isLastChild
-    );
+    const updatedLastChildMarks = [...lastChildMarks, isLastChild];
+    const subTree = dive(child.name, childItems, updatedLastChildMarks);
     return `${treeStr}${space}${jointer} ${subTree}`;
   }, root);
 }

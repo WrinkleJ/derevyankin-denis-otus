@@ -1,0 +1,13 @@
+{
+  "name": "A",
+  "items": [
+    {
+      "name": "B",
+      "items": [
+        { "name": "C", "items": [{ "name": "D" }, { "name": "E" }] }
+      ]
+    },
+    { "name": "F" },
+    { "name": "G" }
+  ]
+}
