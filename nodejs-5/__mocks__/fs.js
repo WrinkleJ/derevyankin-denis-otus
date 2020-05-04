@@ -1,5 +1,6 @@
 const fs = jest.genMockFromModule("fs");
 const path = require("path");
+const normalizeSplittedPath = require("./normalizeSplittedPath");
 
 let tree = {};
 
@@ -16,7 +17,7 @@ function getObjectsFromPath(dirPath) {
 }
 
 function getSubTree(dirPath) {
-  const __path = dirPath.split(path.sep);
+  const __path = normalizeSplittedPath(dirPath.split(path.sep));
   return __path.reduce((curSubTree, name) => curSubTree[name] || {}, tree);
 }
 
@@ -50,8 +51,13 @@ async function opendir(dirPath) {
   });
 }
 
+async function access() {
+  return new Promise((resolve) => resolve(true));
+}
+
 fs.__mockFsTree = __mockFsTree;
 fs.promises = {
   opendir: opendir,
+  access: access
 };
 module.exports = fs;
