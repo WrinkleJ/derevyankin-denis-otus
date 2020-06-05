@@ -1,0 +1,13 @@
+doctype html
+html(lang="ru")
+    head
+        title="Список курсов"
+        meta(name="viewport" content="initial-scale=1")
+    body
+        h1 Список курсов:
+        if courses
+            ul
+                each course in courses
+                    li 
+                        a(href='courses/'+course.id)=course.name
+        button="Добавить курс"

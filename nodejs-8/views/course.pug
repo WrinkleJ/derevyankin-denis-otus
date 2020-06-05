@@ -1,0 +1,19 @@
+doctype html
+html(lang="ru")
+    head
+        title=name
+        meta(name="viewport" content="initial-scale=1")
+    body
+        h1=name
+        h2="Описание"
+        p=description
+        h2="Список занятий"
+        if lessons
+            ul
+                each lesson, index in lessons
+                    li
+                        a(href='/courses/' + id + '/lessons/'+ index)=lesson.name
+        button="Добавить занятие"
+        br
+        br
+        button="Удалить курс"

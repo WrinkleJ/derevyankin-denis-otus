@@ -1,0 +1,20 @@
+doctype html
+html(lang="ru")
+    head
+        title=name
+        meta(name="viewport" content="initial-scale=1")
+    body
+        h1=name
+        h2="Описание"
+        p=description
+        h2="Запись занятия"
+        <video src="#" controls></video>
+        h2="Дополнительные материалы"
+        if additionals
+            ul
+                each additional in additionals
+                    li=additional
+        button="Редактировать занятие"
+        br
+        br
+        button="Удалить занятие"

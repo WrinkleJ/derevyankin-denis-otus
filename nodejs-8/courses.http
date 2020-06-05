@@ -1,0 +1,34 @@
+POST http://localhost:3000/api/courses
+Content-Type: application/json
+
+{
+  "name": "Web-разработчик на Python",
+  "description": "Вы получите практический опыт и углубленные навыки бэкенд-разработки на Python и Django, а также освоите фронтенд-разработку с нуля на ReactJS и в Figma.",
+  "lessons": [
+    {
+      "name": "Тема 1: Знакомство с курсом.",
+      "description": "Научимся правильно декомпозировать код, именовать переменные и функции, оценивать сложность кода и использовать статические анализаторы. ",
+      "additionals": ["приложение 1", "приложение 2"]
+    },
+    {"name": "Тема 2: Модули, библиотеки, пакеты" },
+    {"name": "Тема 3: Введение в docker, docker-compose"}
+  ]
+}
+
+###
+
+PUT http://localhost:3000/api/courses
+Content-Type: application/json
+
+{
+  "id": "5ed779026141de16a0df079a",
+  "name": "Web-разработчик на Python"
+}
+
+###
+
+GET http://localhost:3000/api/courses
+
+###
+
+GET http://localhost:3000/api/courses/5ed64ba3f369bb3da003c553

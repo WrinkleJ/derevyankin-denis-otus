@@ -1,0 +1,27 @@
+doctype html
+html(lang="ru")
+    head
+        title= "Авторизация"
+        link(rel='stylesheet' href="/stylesheets/login.css")
+        meta(name="viewport" content="initial-scale=1")
+    body
+        form(
+                action="/courses"
+                autocomplete="off"
+                enctype="application/x-www-form-urlencoded"
+                method="get"
+                name="auth"
+            )
+            fieldset
+                legend= "Авторизация"
+                div
+                    
+                    p
+                        label(for="name")= "Имя "
+                        br
+                        input(type="text" id="name" tabindex="0" autofocus)
+                    p
+                        label(for="password")= "Пароль "
+                        br
+                        input(type="password" id="name" tabindex="0")
+                input(type="submit", value="Войти", for="auth")
