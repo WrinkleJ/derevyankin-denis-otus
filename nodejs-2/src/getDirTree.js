@@ -19,7 +19,15 @@ const MAX_TRAVERSE_DEPTH = 10;
  * @returns {Tree} object which describes directory tree
  */
 async function getDirTree(dirPath = "./", maxDepth = MAX_TRAVERSE_DEPTH) {
+  if (maxDepth < 0) {
+    throw Error(`Max depth must be over zero, but it is ${maxDepth}`);
+  }
   const fullPath = getFullPath(dirPath);
+  try {
+    await fs.promises.access(fullPath, fs.constants.F_OK);
+  } catch (e) {
+    throw Error("No such file or directory");
+  }
   return dive(fullPath, maxDepth, 0);
 }
 
